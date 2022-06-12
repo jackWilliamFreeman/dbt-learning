@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: STG_HME
+    description: A clone of a Postgres application database.
+    database: SBX_DA_OPERATIONS
+    schema: STG_HME
+    tables:
+      - name: EQUIPMENTEVENT
+        description: Events from HME application.
+        columns:
+          - name: ID
+            description: Primary key for equipment events.
+        #    tests:
+        #      - unique
+        #      - not_null
+        #      config:
+        #        where: "RECORD_ACTIVE_FLAG = 'Y'"
+
+        #loaded_at_field: _etl_loaded_at
+        #freshness:
+        #  warn_after: {count: 12, period: hour}
+        #  error_after: {count: 24, period: hour}
+
+      - name: EQUIPMENT
+        description: Table of equipment configured in Delta HME.
+        columns:
+          - name: ID
+            description: Primary key for equipment.
