@@ -45,4 +45,17 @@ sources:
         columns:
           - name: ID
             description: Primary key for equipment.
-      
+      - name: SOURCESYSTEMEVENTTYPE
+      - name: SOURCESYSTEM
+      - name: EQUIPMENTCLASS
+      - name: EQUIPMENTTYPE
+      - name: OPERATION
+      - name: EVENTMAPPING
+      - name: TIMEUSAGEVERSION
+
+  - name: COMMONTRANSFORM
+    description: Home for shift date transforms.
+    database: AA_OPERATIONS_MANAGEMENT
+    schema: COMMONTRANSFORM
+    tables:
+      - name: SHIFT_DATES
