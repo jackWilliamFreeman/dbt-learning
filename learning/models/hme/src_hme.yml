@@ -16,14 +16,33 @@ sources:
         #      - not_null
         #      config:
         #        where: "RECORD_ACTIVE_FLAG = 'Y'"
-
+      - name: EQUIPMENT
+        description: Events from HME application.
+        columns:
+          - name: ID
+            description: Primary key for equipment events.
+        #    tests:
+        #      - unique
+        #      - not_null
+        #      config:
+        #        where: "RECORD_ACTIVE_FLAG = 'Y'"
         #loaded_at_field: _etl_loaded_at
         #freshness:
         #  warn_after: {count: 12, period: hour}
         #  error_after: {count: 24, period: hour}
-
-      - name: EQUIPMENT
-        description: Table of equipment configured in Delta HME.
+      - name: TIMEUSAGELEVEL
+        description: table describing the level for each element in the TUM.
         columns:
           - name: ID
             description: Primary key for equipment.
+      - name: TUMEVENTTYPEMAPPING
+        description: Mapping table for TUM events to raw source system events.
+        columns:
+          - name: ID
+            description: Primary key for equipment.\
+      - name: EVENTTYPE
+        description: Mapping table for TUM events to raw source system events.
+        columns:
+          - name: ID
+            description: Primary key for equipment.
+      
