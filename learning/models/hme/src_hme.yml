@@ -59,3 +59,10 @@ sources:
     schema: COMMONTRANSFORM
     tables:
       - name: SHIFT_DATES
+
+  - name: MINESTAR
+    description: Minestar data.
+    database: SBX_DA_OPERATIONS
+    schema: STG_MINESTAR_MSHIST
+    tables:
+      - name: CYCLE
