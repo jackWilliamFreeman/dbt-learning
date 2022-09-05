@@ -1,4 +1,4 @@
-{{ config(materialized='table', database = "SBX_AA_OPERATIONS_MANAGEMENT", alias = "TUM_LEVELS", schema = 'SLN_HME') }}
+{{ config(materialized='table', database = "AA_OPERATIONS_MANAGEMENT", alias = "TUM_LEVELS", schema = 'SLN_HME') }}
 
 WITH levels AS (
 	SELECT

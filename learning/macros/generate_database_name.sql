@@ -13,9 +13,13 @@
 
         {{ target.name }}_{{ custom_database_name | trim }}
 
+    {%- elif target.name == 'PROD' -%}
+
+        {{ custom_database_name | trim }}
+
     {%- else -%}
 
-        {{ custom_database_name }}
+        {{ target.name }}_{{ custom_database_name | trim }}
 
     {%- endif -%}
 

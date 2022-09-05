@@ -1,4 +1,4 @@
-{{ config(database = "SBX_AA_OPERATIONS_MANAGEMENT") }}
+{{ config(database = "AA_OPERATIONS_MANAGEMENT") }}
 
 SELECT 
 	ee.ID EVENT_ID,
@@ -101,7 +101,7 @@ LEFT OUTER JOIN {{ref('stg_timeusageversion')}} tuv ON
 LEFT OUTER JOIN {{ref('int_tum_levels')}} teml ON 
 		teml.EventTypeId = tetm.EventTypeId
 	AND teml.TimeUsageVersionId = tuv.Id
-LEFT OUTER JOIN {{source('COMMONTRANSFORM', 'SHIFT_DATES')}} sd
+LEFT OUTER JOIN {{ref('stg_commontransform_shiftdates')}} sd
 	-- Join Changed 22/7 as per request from Leo regarding performance.
 	ON ee.ENDDATETIME  BETWEEN sd.START_TIME AND sd.END_TIME AND sd.shift_date = dateadd(hour, -6, ee.enddatetime)::DATE
 WHERE (tuv.VERSIONNAME IS NOT NULL OR et.EventTypeName IS NULL)

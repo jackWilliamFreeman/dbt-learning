@@ -1,4 +1,4 @@
-{{ config(database = "SBX_AA_OPERATIONS_MANAGEMENT") }}
+{{ config(database = "AA_OPERATIONS_MANAGEMENT") }}
 
 SELECT
 	sd.SHIFT,
@@ -166,11 +166,11 @@ SELECT
 	CREATED_DATE_UTC,
 	JOBCODE_COMMENT
 FROM
-	{{ref('int_cycle__tum')}} ctu
+	{{ref('int_cycle_tum')}} ctu
 INNER JOIN {{ref('stg_minestar_cycles')}} c ON
 	c.CYCLE_OID = ctu.CYCLEID
 	AND c.HUB = ctu.OPERATION_NAME
-LEFT OUTER JOIN {{source('COMMONTRANSFORM', 'SHIFT_DATES')}} sd
+LEFT OUTER JOIN {{ref('stg_commontransform_shiftdates')}} sd
     ON
         ENDTIME_UTC >= sd.START_TIME AND ENDTIME_UTC <= sd.END_TIME
         AND sd.shift_date = dateadd(hour, -6, ENDTIME_UTC)::DATE -- Join Optimisation

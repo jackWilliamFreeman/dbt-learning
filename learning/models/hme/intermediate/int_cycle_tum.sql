@@ -1,3 +1,5 @@
+{{ config(materialized='table', database = "AA_OPERATIONS_MANAGEMENT", schema = 'SLN_HME') }}
+
 SELECT
 	OPERATION_NAME,
 	e.CYCLEID,

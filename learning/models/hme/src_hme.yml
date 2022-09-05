@@ -3,8 +3,8 @@ version: 2
 sources:
   - name: STG_HME
     description: A clone of a Postgres application database.
-    database: SBX_DA_OPERATIONS
     schema: STG_HME
+    database: "{{ '' if target.name == 'PROD' else target.name + '_' }}DA_OPERATIONS"
     tables:
       - name: EQUIPMENTEVENT
         description: Events from HME application.
@@ -55,14 +55,14 @@ sources:
 
   - name: COMMONTRANSFORM
     description: Home for shift date transforms.
-    database: AA_OPERATIONS_MANAGEMENT
     schema: COMMONTRANSFORM
+    database: "{{ '' if target.name == 'PROD' else target.name + '_' }}AA_OPERATIONS_MANAGEMENT"
     tables:
       - name: SHIFT_DATES
 
   - name: MINESTAR
     description: Minestar data.
-    database: SBX_DA_OPERATIONS
     schema: STG_MINESTAR_MSHIST
+    database: "{{ '' if target.name == 'PROD' else target.name + '_' }}DA_OPERATIONS"
     tables:
       - name: CYCLE
